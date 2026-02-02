@@ -32,7 +32,7 @@ app.put('/usuarios/:id', (req,res) =>{
         res.send(usuario);
     }
     else {
-        res.send(404).send ("não encontrado");
+        res.status(404).send ("não encontrado");
     }
 });
 
@@ -44,5 +44,5 @@ app.delete('/usuarios/:id', (req, res) => {
 });
 
 app.listen(port, () =>{
-    console.log('servidor rodando em http://localhost:&{port}');
+    console.log(`servidor rodando em http://localhost:${port}`);
 });
