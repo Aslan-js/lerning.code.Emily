@@ -4,9 +4,9 @@ app.use(express.json());
 const port = 3000;
 
 let usuarios = [
-    { id: 1, nome: "Emi" },
-    { id: 2, nome: "Rapha" },
-    { id: 3, nome: "Cronos" }
+    { id: 1, nome: "Emi", idade: 18, sexo: "f", pais:"Brasil"},
+    { id: 2, nome: "Rapha", idade: 32, sexo: "m", pais: "Portugal"},
+    { id: 3, nome: "Cronos", idade: 3, sexo: "m", pais: "Brasil"}
 ];
 
 app.get('/usuarios', (req, res) => {
@@ -16,7 +16,10 @@ app.get('/usuarios', (req, res) => {
 app.post('/usuarios', (req,res) =>{
     const novoUsuario = {
         id: usuarios.length +1,
-        nome: req.body.nome
+        nome: req.body.nome,
+        idade: req.body.idade,
+        sexo: req.body.sexo,
+        pais: req.body.pais
     };
 
     usuarios.push(novoUsuario);
@@ -29,6 +32,9 @@ app.put('/usuarios/:id', (req,res) =>{
 
     if(usuario){
         usuario.nome = req.body.nome;
+        usuario.idade = req.body.idade;
+        usuario.sexo = req.body.sexo;
+        usuario.pais = req.body.pais;
         res.send(usuario);
     }
     else {
