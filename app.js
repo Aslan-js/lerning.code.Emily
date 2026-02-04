@@ -10,9 +10,9 @@ sequelize.sync()
     .catch(err => console.error('erro', err));
 
 app.post('/usuarios', async (req, res) => {
-  const { nome, idade, sexo, pais } = req.body;
+  const { nome, idade, sexo, pais, email } = req.body;
   
-  const novoUsuario = await User.create({ nome, idade, sexo, pais });
+  const novoUsuario = await User.create({ nome, idade, sexo, pais, email });
   
   res.json(novoUsuario);
 });

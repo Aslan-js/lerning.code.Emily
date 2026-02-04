@@ -21,6 +21,11 @@ const User = sequelize.define('User', {
     pais: {
         type: DataTypes.STRING(15),
         allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     }
 });
 module.exports = User;
